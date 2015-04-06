@@ -6,6 +6,7 @@ RUN apt-get update && \
     apt-get -y install python-software-properties git build-essential curl
 RUN curl -sL https://deb.nodesource.com/setup | bash - && \
     apt-get -y install nodejs
+RUN apt-get clean
 
 # use changes to package.json to force Docker not to use the cache
 # when we change our application's nodejs dependencies:
