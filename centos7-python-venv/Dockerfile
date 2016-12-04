@@ -1,4 +1,4 @@
-MAINTAINER miticojo[AT]gmail.com
+MAINTAINER Giorgio Crivellari <miticojo@gmail.com>
 FROM centos:7
 
 # set python version to install
