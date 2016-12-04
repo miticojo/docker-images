@@ -1,5 +1,5 @@
-MAINTAINER Giorgio Crivellari <miticojo@gmail.com>
 FROM centos:7
+MAINTAINER Giorgio Crivellari <miticojo@gmail.com>
 
 # set python version to install
 ARG PYTHON_VER=3.5.2
