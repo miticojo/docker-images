@@ -3,7 +3,8 @@ LABEL maintainer="miticojo@gmail.com"
 
 RUN sed -i '/tsflags=nodocs/d' /etc/yum.conf
 RUN yum -y install yum-plugin-security && \
-    yum --security -y update && \
+    yum check-update --security && \
+    yum update --security -y && \
     yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-$(rpm -E '%{rhel}').noarch.rpm && \
     yum install -y jq && yum clean all && rm -rf /var/cache/yum
 
