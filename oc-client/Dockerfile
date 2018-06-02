@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/rhel:latest
+FROM centos:centos7
 LABEL maintainer="miticojo@gmail.com"
 
 RUN yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-$(rpm -E '%{rhel}').noarch.rpm && \
