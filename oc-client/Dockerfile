@@ -2,10 +2,12 @@ FROM centos:centos7
 LABEL maintainer="miticojo@gmail.com"
 
 RUN sed -i '/tsflags=nodocs/d' /etc/yum.conf
-RUN yum updateinfo list sec && \
-    yum update-minimal --security -y && \
+RUN yum clean all && \
+    yum update -y && \
     yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-$(rpm -E '%{rhel}').noarch.rpm && \
-    yum install -y jq && yum clean all && rm -rf /var/cache/yum
+    yum install -y jq && \
+    yum clean all && \
+    rm -rf /var/cache/yum
 
 RUN curl -L `curl -s https://api.github.com/repos/openshift/origin/releases/latest | jq -r ".assets[] | select(.browser_download_url | contains(\"linux\")) | select(.browser_download_url | contains(\"server\") | not ) | .browser_download_url"` | tar xz -C /tmp
 
